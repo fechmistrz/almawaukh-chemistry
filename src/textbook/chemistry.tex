@@ -1,5 +1,8 @@
 \documentclass{createspace}
 
+% https://tex.stackexchange.com/questions/69901/how-to-typeset-greek-letters
+\newcommand{\textgreek}[1]{\begingroup\fontencoding{LGR}\selectfont#1\endgroup}
+
 \usepackage{xcolor}
 \usepackage{tcolorbox}
 \newtcolorbox{etymology_box}{colback=blue!5!white, colframe=blue!75!black,fonttitle=\bfseries,title=Etymologia}
