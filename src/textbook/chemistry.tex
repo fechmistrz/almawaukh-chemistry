@@ -12,6 +12,17 @@
 
 \newcommand{\important}[1]{{\color{blue!70!white}\textbf{#1}}}
 
+\usepackage{etoolbox} % https://tex.stackexchange.com/questions/492461/showidx-gives-undefined-control-sequence-error
+% forced by -output-directory option in makefile
+% see https://tex.stackexchange.com/a/564296
+\makeatletter
+\patchcmd\imki@putindex
+  {\imki@exec{\imki@program \imki@options #1.idx}}
+  {\imki@exec{cd ../../build/textbook;\imki@program\imki@options#1.idx}}
+  {\message{Patch succeeded in imki@putindex}}
+  {\errmessage{Patch failed in imki@putindex}}
+\makeatother
+
 \author{Aallotar Järvinen}
 \title{Chemiczne notatki}
 
